@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en" class="justify-content-center align-items-center d-flex">
+<head>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Sigmar&display=swap" rel="stylesheet">
+    <script>
+      function isMobile() {
+          return /Mobi|Android/i.test(navigator.userAgent);
+      }
+      window.onload = function() {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = isMobile() ? "./css/mobile-style.css" : "./css/style.css";
+        document.head.appendChild(link);
+        isMobile() ? appNomeMobile.mount('#firsttemplate') : appNome.mount('#firsttemplate');
+      };
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian Portfolio</title>
+</head>
+<body>
+<!--cabeçalho-->
+<header>
+</header>
+<!--corpo-->
+<main class="row">
+  <!-- template vue -->
+  <div id="firsttemplate"></div>
+</main>
+
+<footer>
+  <hr>
+  <div class="row justify-content-center" style="margin-bottom: 20px;">
+    <div class="col">
+      <h5 class="text-center" style="color: #f65f5f;">Cristian Oliveira Portfolio - Made in Brazil</h5>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script>
+  const appNomeMobile = Vue.createApp({
+    data() {
+      return {
+          texto: 'You',
+          selectlanguage: 'English'
+      };
+      },
+    methods: {
+      trocarTexto(){
+        const app = Vue.createApp({
+          data() {
+              return {
+                  selectedLanguage: ''
+              }
+            }
+        })
+        app.mount('#app')
+      }
+    },
+    template: `
+      <div class="container-fluid mb-2">
+      <section id="person" class="align-center col row">
+        <div class="semi-person">
+          <div class="hello-person">
+              <h1>Hey, {{ texto }}! <span></span></h1>
+              <h1 v-if="selectlanguage === 'Portuguese'">Conheça: <span></span></h1>
+              <h1 v-if="selectlanguage === 'English'">Let's know: <span></span></h1>
+              <h1 v-if="selectlanguage === 'Deutsch'">Lass uns treffen: <span></span></h1>
+              <h1>Cristian <br> Oliveira<span></span></h1>
+          </div>
+        </div> 
+      </section>
+      <section id="aboutMe" class="align-center col row">
+        <div class="semi-person">
+          <div id="inputs" class="row">
+            <div id="nome" class="wave-group mt-5 ms-4 col-md-6">
+              <input required="" v-model="texto" type="text" class="input">
+              <span class="bar"></span>
+              <label class="label">
+                <span class="label-char" style="--index: 0">N</span>
+                <span class="label-char" style="--index: 1">a</span>
+                <span class="label-char" style="--index: 2">m</span>
+                <span class="label-char" style="--index: 3">e</span>
+              </label>
+            </div>
+            <div class="radio-inputs mt-4 col-md-6">
+              <label for="Portuguese">
+                <input id="Portuguese" value="Portuguese" class="radio-input" type="radio" name="engine" v-model="selectlanguage">
+                  <span class="radio-tile">
+                    <span class="radio-icon">
+                      <img src="./img/brazil.svg" alt="Change to Portuguese" srcset="">
+                    </span>
+                    <span class="radio-label">Portuguese</span>
+                  </span>
+              </label>
+              <label for="English">
+                <input id="English" value="English" checked="" class="radio-input" type="radio" name="engine" v-model="selectlanguage">
+                <span class="radio-tile">
+                  <span class="radio-icon">
+                    <img src="./img/usa.svg" alt="Change to English-USA" srcset="">
+                  </span>
+                  <span class="radio-label">English-USA</span>
+                </span>
+              </label>
+              <label for="Deutsch">
+                <input id="Deutsch" value="Deutsch" class="radio-input" type="radio" name="engine" v-model="selectlanguage">
+                <span class="radio-tile">
+                  <span class="radio-icon">
+                    <img src="./img/germany.svg" alt="Change to German" srcset="">
+                  </span>
+                  <span class="radio-label">Deutsch</span>
+                </span>
+              </label>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+    </div>
+
+    <div class="container-fluid skills">
+      <div class="stacks-content ms-3 row">
+        <h3 class="row">Developer Web <span></span></h3>
+        <div class="stacks row">
+            <div class="m-3 col-md-6">
+              <img src="./img/html.svg" alt="HTML">
+              <img src="./img/css.svg" alt="CSS">
+              <img src="./img/bootstrap.svg" alt="Bootstrap">
+              <img src="./img/js.svg" alt="JavaScript">
+            </div>
+            <div class="m-3 col-md-6">
+              <img src="./img/vue.svg" alt="Vue.Js">
+              <img src="./img/php.png" alt="PHP">
+              <img src="./img/laravel-svgrepo-com.svg" alt="Laravel">
+              <img src="./img/postgresql.svg" alt="PostgreSQL">
+            </div>
+        </div>
+      </div>
+      <div class="stacks-content ms-3 row">
+        <h3 class="row">UI/UX Web Designer <span></span></h3>
+        <div class="stacks">
+            <div class="m-3">
+              <img src="./img/illustrator.svg" alt="Adobe Illustrator">
+              <img src="./img/photoshop.svg" alt="Adobe Photoshop">
+              <img src="./img/adobe-premiere-pro.svg" alt="Adobe Premiere">
+              <img src="./img/sass.svg" alt="SASS/SCSS">
+            </div>
+        </div>
+      </div>
+      <div class="stacks-content ms-3 row">
+        <h3 class="row">Pentester Web <span></span></h3>
+        <div class="stacks">
+            <div class="m-3">
+              <img src="./img/hydra-svgrepo-com.svg" alt="Hydra">
+              <img src="./img/kalilinux-svgrepo-com.svg" alt="Kali Linux">
+              <img src="./img/Zap.png" alt="OWASP ZAP">
+              <img width="64" height="64" src="https://shorturl.at/fgpHJ" alt="White Hat"/>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="DeveloperWeb" class="container-fluid my-3  animated-element">
+      <div class="col-12">
+        <h1 class="text-title"> Develop Web</h1>
+      </div>
+      <!-- front-end -->
+      <div class="row animated-element">
+        <div class="col-md-5">
+          <img src="./img/WebDevelop.png" alt="" style="width: 300px;margin-left: 3em;margin-bottom: 2em;">
+        </div>
+        <div class="col-md-7">
+          <div class="code-editor">
+            <div class="header">
+              <span class="title">Front-End</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path> </g></svg>
+            </div>
+            <div class="editor-content">
+              <code class="code">
+                <p><span class="color-0">.MySkills </span> <span>{</span></p>
+      
+                <p class="property">
+                  <span class="color-2">min-skills:</span><span>:</span>
+                  <span class="color-1" v-if="selectlanguage === 'Portuguese'">Quando falamos de front-end posso dizer que algumas das minhas principais ferramentas são
+                    as que eu uso também no Web Designer, em termos de linguagem eu sempre busco trazer responsividade tanto para mobile
+                    quanto para desktop, também para vários outros tamanhos de tela.
+                    Além de  HTML, CSS e JavaScript eu utilizo frameworks como o Vue.Js, JQuery, Bootstrap, Uiverse.io, entre outros
+                    que estão sendo usados neste portifólio.
+                    <br>
+                    Fora da parte do Designer, eu como pentester, também entendo que a segurança está nas minímas partes, Por
+                    isso uso cada framework com cautela já que usa-los de forma erradica pode gerar uma brecha para ataques.
+                    Sendo assim se você é pentester e está neste portifólio tem permissão de tentar algum ataque nele, assim como
+                    pode tentar ajustar a tela para tamanhos maiores, menores e no modo android para comprovar a responsividades da
+                    página.
+                    <br>
+                    Como Front-End/WebDesigner em minha antiga empresa fui encarregado pela criação dos Designers de temporadas, fazendo
+                    com que o layout e o estilo do site mudasse de acordo com a data, por exemplo: no ano-novo fazia um céu com fogos
+                    de artifício.
+                    <br>
+                    Já a minha formação em front-end começou em 2020 quando entrei para a escola técnica EETEPA Dr. Celso Malcher que em
+                    2023 foi considerada a melhor escola técnica de sua categoria da região norte do país, com boas notas e participações
+                    principalmente nas disciplinas de Desenvolvimento Web.
+                  </span>
+                  <span class="color-1" v-if="selectlanguage === 'English'">When we talk about front-end I can say that some of my main tools are
+                    the ones I also use in Web Designer, in terms of language I always try to bring responsiveness to both mobile
+                    as for desktop, also for various other screen sizes.
+                    In addition to HTML, CSS and JavaScript, I use frameworks such as Vue.Js, JQuery, Bootstrap, Uiverse.io, among others
+                    that are being used in this portfolio.
+                    <br>
+                    Outside of the Designer part, as a pentester, I also understand that security is in the smallest parts,
+                    Therefore, I use each framework with caution as using them in an inappropriate way can create an opening for attacks.
+                    Therefore, if you are a pentester and are in this portfolio, you are allowed to attempt any attack on it, just like
+                    You can try adjusting the screen to larger, smaller sizes and in Android mode to check the responsiveness of the screen.
+                    page.
+                    <br>
+                    As a Front-End/WebDesigner in my former company, I was in charge of creating Season Designers, making
+                    so that the layout and style of the website changed according to the date, for example: on New Year's there was a sky with fireworks
+                    of artifice.
+                    <br>
+                    My front-end training began in 2020 when I entered the EETEPA Dr. Celso Malcher technical school, which in
+                    2023 was considered the best technical school in its category in the northern region of the country, with good grades and participation
+                    mainly in the Web Development disciplines.
+                  </span>
+                  <span class="color-1" v-if="selectlanguage === 'Deutsch'">Wenn wir über Frontend sprechen, kann ich sagen, dass einige meiner wichtigsten Tools Folgendes sind
+                    diejenigen, die ich auch im Web Designer verwende, in Bezug auf die Sprache versuche ich immer, Reaktionsfähigkeit auf beide Mobilgeräte zu bringen
+                    Wie für den Desktop, auch für verschiedene andere Bildschirmgrößen.
+                    Neben HTML, CSS und JavaScript verwende ich unter anderem Frameworks wie Vue.Js, JQuery, Bootstrap, Uiverse.io
+                    die in diesem Portfolio verwendet werden.
+                    <br>
+                    Außerhalb des Designer-Teils verstehe ich als Pentester auch, dass Sicherheit in den kleinsten Teilen steckt,
+                    Daher verwende ich jedes Framework mit Vorsicht, da eine unangemessene Verwendung eine Angriffsfläche schaffen kann.
+                    Wenn Sie also ein Pentester sind und sich in diesem Portfolio befinden, dürfen Sie jeden Angriff darauf versuchen, genau wie
+                    Sie können versuchen, den Bildschirm auf größere, kleinere Größen anzupassen und im Android-Modus die Reaktionsfähigkeit des Bildschirms zu überprüfen.
+                    Seite.
+                    <br>
+                    Als Frontend-/Webdesigner in meiner früheren Firma war ich für die Erstellung und Erstellung von Saisondesignern verantwortlich
+                    sodass sich Layout und Stil der Website je nach Datum änderten, zum Beispiel: An Neujahr gab es einen Himmel mit Feuerwerk
+                    der Künstlichkeit.
+                    <br>
+                    Meine Front-End-Ausbildung begann im Jahr 2020, als ich die technische Schule EETEPA Dr. Celso Malcher betrat, die in
+                    2023 galt mit guten Noten und guter Beteiligung als beste technische Schule ihrer Kategorie in der nördlichen Region des Landes
+                    hauptsächlich in den Disziplinen Webentwicklung.
+                  </span>
+                </p>
+                <span>}</span>
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- back-end -->
+      <div class="row animated-element">
+        <div class="col-md-7">
+          <div class="card-be">
+            <div class="header-be">
+              <div class="top-be">
+                <div class="circle-be">
+                  <span class="red-be circle2-be"></span>
+                </div>
+                <div class="circle-be">
+                  <span class="yellow-be circle2-be"></span>
+                </div>
+                <div class="circle-be">
+                  <span class="green-be circle2-be"></span>
+                </div>
+                <div class="title-be">
+                  <p id="title2-be">BackEnd.php</p>
+                </div>
+              </div>
+            </div>
+            <div class="code-container-be mt-2">
+              <textarea readonly="" name="code" id="code-be" class="area-be color-0" v-if="selectlanguage === 'Portuguese'">
+    <?php
+    include './backend/functions.php';
+
+    foreach (skills as key => value) 
+    {
+    $value['BackEndSkillsDescription'];
+    $value['skills'] = "
+
+      Tendo como primeira linguagem de programação o PHP me sinto 
+      bem familiarizado com a estrutura do código e suas funções na web. 
+      Quando trabalhei como desenvolvedor web eu utilizava o PHP puro, porém
+      após ter saído comecei a me dedicar a aprender Laravel e agora atualmente
+      tenho projetos rodando em laravel, que se tornou meu framework preferido
+      pelo menos até agr em empate com o Vue.Js do front.
+
+      Embora isso devo dizer que quando se trata de usar o PHP para 
+      segurança de dados é onde não falho, e digo isso não apenas sobre 
+      SQLInjections mas também sobre XSS, CSRF, Criptografia, segurança
+      de senhas e autenticação de clientes. Seja através do Laravel, seja
+      através do PHP puro.
+
+      Em relação a Banco de Dados utilizei o PostgreSQL para consultas
+      e criações de queries, ainda não satisfeito com minhas habilidades
+      com banco de dados busco agora aprender sobre cloud computing e com isso
+      banco de dados em nuvem e hospedagem de dados.
+
+      Minha formação no back-end veio junto com a de front começando em 
+      2020, em minha escola técnica comecei a estudar Bando de dados e 
+      JAVA voltado à programação orientada a objeto, porém meu primeiro 
+      emprego na aréa tive que usar o php, o que me adaptei e me acostumei
+      a usar hoje em dia, mas ainda sim estou começando a estudar Assembly e Python.
+    ";
+    }
+
+    echo json_encode(skills, JSON_PRETTY_PRINT);
+    ?>
+              </textarea>
+              <textarea readonly="" name="code" id="code-be" class="area-be color-0" v-if="selectlanguage === 'English'">
+    <?php
+    include './backend/functions.php';
+
+    foreach (skills as key => value) 
+    {
+    $value['BackEndSkillsDescription'];
+    $value['skills'] = "
+
+      Having PHP as my first programming language makes me feel well familiar with the code structure and its functions on the web. When I worked as a web developer I used pure PHP, howeverAfter leaving I started dedicating myself to learning Laravel and nowI have projects running in Laravel, which has become my favorite frameworkat least until now in a tie with Vue.Js on the front.
+
+      Although I must say that when it comes to using PHP to Data security is where I don't fail, and I say that not just about SQLInjections but also about XSS, CSRF, Cryptography, securitypasswords and customer authentication. Whether through Laravel orthrough pure PHP.
+
+      Regarding the Database, I used PostgreSQL for queriesand creating queries, still not satisfied with my skillswith database I now seek to learn about cloud computing and with thatcloud database and data hosting.
+
+      My back-end training came together with my front-end training starting in 2020, at my technical school I started studying Database and JAVA aimed at object-oriented programming, but my first job in the area I had to use PHP, which I adapted and got used toto use nowadays, but I'm still starting to study Assembly and Python.
+    ";
+    }
+
+    echo json_encode(skills, JSON_PRETTY_PRINT);
+    ?>
+              </textarea>
+              <textarea readonly="" name="code" id="code-be" class="area-be color-0" v-if="selectlanguage === 'Deutsch'">
+    <?php
+    include './backend/functions.php';
+
+    foreach (skills as key => value) 
+    {
+    $value['BackEndSkillsDescription'];
+    $value['skills'] = "
+
+      PHP als meine erste Programmiersprache zu haben, gibt mir ein Gefühl 
+      mit der Codestruktur und seinen Funktionen im Web gut vertraut sind. 
+      Als ich als Webentwickler gearbeitet habe, habe ich jedoch reines PHP 
+      verwendet Nachdem ich gegangen war, widmete ich mich dem Erlernen von 
+      Laravel und jetzt Ich habe Projekte in Laravel ausgeführt, das zu meinem 
+      Lieblingsframework geworden ist Zumindest bis jetzt im Gleichstand mit 
+      Vue.Js an der Spitze.
+
+      Obwohl ich das sagen muss, wenn es um die Verwendung von PHP geht 
+      Bei der Datensicherheit verliere ich nichts, und das sage ich nicht nur 
+      SQLInjections, aber auch über XSS, CSRF, Kryptographie, Sicherheit
+      Passwörter und Kundenauthentifizierung. Ob durch Laravel oder
+      durch reines PHP.
+
+      Bezüglich der Datenbank habe ich PostgreSQL für Abfragen verwendet
+      und das Erstellen von Abfragen, immer noch nicht zufrieden mit meinen 
+      Fähigkeiten Mit Datenbank möchte ich jetzt etwas über Cloud Computing 
+      lernen und damit Cloud-Datenbank und Datenhosting.
+
+      Meine Back-End-Ausbildung ging mit meiner Front-End-Ausbildung einher 
+      2020 begann ich an meiner technischen Schule mit dem Studium von 
+      Datenbanken und JAVA zielte auf objektorientierte Programmierung 
+      ab, aber mein erstes Bei meinem Job in der Gegend musste ich PHP 
+      verwenden, was ich adaptierte und an das ich mich gewöhnte Heutzutage zu 
+      verwenden, aber ich fange immer noch an, Assembly und Python zu studieren.
+    ";
+    }
+
+    echo json_encode(skills, JSON_PRETTY_PRINT);
+    ?>
+              </textarea>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-5">
+          <img src="./img/backend.png" alt="" style="width: 300px; margin-left: 3em; margin-bottom: 2em; margin-top: 2em;">
+        </div>
+      </div>
+    </div>
+
+    <div id="WebDesigner" class="container-fluid my-3 animated-element">
+      <div class="col-12">
+        <h1 class="text-title"> Web Designer </h1>
+      </div>
+      <div class="row animated-element">
+        <div class="col">
+          <img src="./img/webdesigner.svg" alt="" srcset="">
+        </div>
+        <div class="col">
+          <div class="package-wb">
+            <div class="package2-wb">
+              <p class="text-wb" v-if="selectlanguage === 'Portuguese'">
+                Sobre o Web Designer, acredito que você já deve ter
+                observado as animações deste portifólio, assim como as cores, 
+                figuras, icones, textos e tudo mais, tudo o que for visivel
+                nessa página é parte das minhas habilidades como Web Designer.
+
+                As ferramentas que eu uso vão de aplicativos gráficos até linguagens
+                e sites: Extenções, Illustrator, Photoshop, Premiere, Freepik, Uiverse e
+                Adobe Color são algumas dessas feramentas. Fora isso na parte de código
+                eu tenho capacidades para criar e modificar svgs e conhecimentos sobre a
+                linguagem SASS/SCSS.
+
+                É importante ressaltar aqui que apenas uno minhas habilidades de Designer
+                com minhas habilidades de programador, o que faz eu conseguir realizar estes
+                trabalhos com mais naturalidade e até mais fácil, porém sempre é trabalhoso,
+                afinal um arquivo CSS normalmente tem muito mais linhas do que um arquivo PHP
+                (ao menos eu gosto de trabalhar com php usando includes).
+
+                Dito isto deixo claro que além de trabalhar como programador possuo capacidades
+                para atuar como designer em um cargo iniciando.
+                Sobre minhas previsões pro futuro nessa aréa eu planejo estudar tailwind, wordpress e figma.
+              </p>
+              <p class="text-wb" v-if="selectlanguage === 'English'">
+                About the Web Designer, I believe you may already have
+                observed the animations of this portfolio, as well as the colors, 
+                figures, icons, texts and everything else, everything that is visible
+                on this page is part of my skills as a Web Designer.
+
+                The tools I use range from graphical applications to languages
+                and websites: Extensions, Illustrator, Photoshop, Premiere, Freepik, Uiverse and
+                Adobe Color are some of these tools. Other than that in the code part
+                I have skills to create and modify svgs and knowledge about
+                SASS/SCSS language.
+
+                It is important to highlight here that I only combine my Designer skills
+                with my programming skills, what makes me able to carry out these
+                work more naturally and even easier, but it is always laborious,
+                After all, a CSS file usually has many more lines than a PHP file
+                (at least I like working with PHP using includes).
+
+                Having said this, I make it clear that in addition to working as a programmer, I have skills
+                to work as a designer in an entry-level position.
+                Regarding my predictions for the future in this area, I plan to study tailwind, wordpress and figma.
+              </p>
+              <p class="text-wb" v-if="selectlanguage === 'Deutsch'">
+                Was den Webdesigner betrifft, glaube ich, dass Sie ihn vielleicht bereits kennen
+                beobachtete die Animationen dieses Portfolios sowie die Farben, 
+                Figuren, Symbole, Texte und alles andere, alles, was sichtbar ist
+                auf dieser Seite ist Teil meiner Fähigkeiten als Webdesigner.
+
+                Die Tools, die ich verwende, reichen von grafischen Anwendungen bis hin zu Sprachen
+                und Websites: Erweiterungen, Illustrator, Photoshop, Premiere, Freepik, Uiverse und
+                Adobe Color sind einige dieser Tools. Anders als das im Codeteil
+                Ich habe Fähigkeiten zum Erstellen und Ändern von SVGs und Kenntnisse darüber
+                SASS/SCSS-Sprache.
+
+                An dieser Stelle ist es wichtig hervorzuheben, dass ich nur meine Designerfähigkeiten kombiniere
+                Was macht mich mit meinen Programmierkenntnissen dazu in der Lage, diese durchzuführen?
+                arbeiten natürlicher und noch einfacher, aber es ist immer mühsam,
+                Schließlich hat eine CSS-Datei in der Regel viel mehr Zeilen als eine PHP-Datei
+                (Zumindest gefällt mir die Arbeit mit PHP unter Verwendung von Includes).
+
+                Allerdings möchte ich klarstellen, dass ich neben meiner Arbeit als Programmierer auch über Fähigkeiten verfüge
+                als Designer in einer Einstiegsposition zu arbeiten.
+                Was meine Prognosen für die Zukunft in diesem Bereich betrifft, plane ich, Rückenwind, WordPress und Figma zu studieren.
+              </p>
+            </div>
+          </div>        
+        </div>
+      </div>
+      <div class="row animated-element">
+        <div class="col-md-6">
+          <div class="card-container-wd2 mt-5">
+            <div class="card-wd2">
+              <div class="front-content-wd2">
+                <p v-if="selectlanguage === 'Portuguese'">!</p>
+                <p v-if="selectlanguage === 'English'">Click Here!</p>
+                <p v-if="selectlanguage === 'Deutsch'">klicken Sie hier</p>
+              </div>
+              <div class="content-wd2" v-if="selectlanguage === 'Portuguese'">
+                <p class="heading-wd2">Notas Finais</p>
+                <p>
+                  Tive experiências primárias como WebDesigner freelance antes
+                  da programação, ao entrar no mercado da programação consegui
+                  unir ambas habilidades para um seviço otimizado, tenho qualidades
+                  boas o suficiente para trabalhar como designer mas para um aproveitamento
+                  melhor é de sensatez que eu trabalhe na aréa de Programação Web.
+                </p>
+              </div>
+              <div class="content-wd2" v-if="selectlanguage === 'English'">
+                <p class="heading-wd2">Final Notes</p>
+                <p>
+                  I had primary experience as a freelance Web Designer before
+                  of programming, when entering the programming market I managed to
+                  combining both skills for an optimized service, I have qualities
+                  good enough to work as a designer but to benefit from
+                  It would be wiser for me to work in the area of ​​Web Programming.
+                </p>
+              </div>
+              <div class="content-wd2" v-if="selectlanguage === 'Deutsch'">
+                <p class="heading-wd2">Schlussbemerkungen</p>
+                <p>
+                  Ich hatte zuvor hauptsächlich Erfahrung als freiberuflicher Webdesigner
+                  Als ich in den Programmiermarkt einstieg, gelang mir das
+                  Wenn ich beide Fähigkeiten für einen optimierten Service kombiniere, habe ich Qualitäten
+                  gut genug, um als Designer zu arbeiten, aber auch, um davon zu profitieren
+                  Für mich wäre es klüger, im Bereich Webprogrammierung zu arbeiten.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="./img/developer.svg" alt="" style="width: 300px; margin-left: 4em;">>
+        </div>
+      </div>
+    </div>
+
+    <div id="Pentester" class="container-fluid my-3 animated-element">
+      <div class="col-12">
+        <h1 class="text-title">Pentester</h1>
+      </div>
+      <div class="row animated-element">
+        <div class="col-md-6">
+          <div class="container-pen mb-2">
+            <div class="container_terminal"></div>
+              <div class="terminal_toolbar">
+                  <div class="butt-pen">
+                      <button class="btn-pen btn-color-pen"></button>
+                      <button class="btn-pen"></button>
+                      <button class="btn-pen"></button>
+                  </div>
+                  <p class="user-pen">Cristian0800@root: ~</p>
+              </div>
+              <div class="terminal_body">
+                <div class="terminal_promt">
+                    <span class="terminal_user">Cristian0800@root:</span>
+                    <span class="terminal_location">~</span>
+                    <span class="terminal_bling">$</span>
+                  </div>
+                  <p class="text-warning p-3" v-if="selectlanguage === 'Portuguese'">
+                    Após ter começado a trabalhar com programação uma das minhas
+                    responsabilidades  era realizar testes de segurança nas aplicações
+                    dos clientes, isso me levou a aprender sobre vulnerabilidades e como
+                    evitar elas. Hoje em dia possuo conhecimentos do OWASP (Open Web Application Security Project),
+                    Hydra, Medusa, Aircrack, Bluesniff, Nmap, VM's, Kali Linux, e de outras ferramentas,
+                    aprendendo assim como manter um sistema seguro ensinando também essas habilidade aos outros.
+                    <br>
+                    Também estudei segurança da informação em meu técnico, sabendo evitar problemas não só de
+                    aplicações Web como também de redes, servidores, wireless, hardware, dispositivos ,móveis
+                    e estrutural. Podendo assim me considerar um técnico de segurança da informação também.
+                    <br>
+                    No video ao lado você pode ver um trabalho de pentester bem sucedido enquanto trabalhava
+                    de freelancer, este trabalho foi completamente ético e tenho permissões para usar em meu 
+                    porifólio<span class="terminal_cursor"></span>
+                  </p>
+                  <p class="text-warning p-3" v-if="selectlanguage === 'English'">
+                    After having started working with programming, one of my
+                    responsibilities was to perform security tests on applications
+                    from customers, this led me to learn about vulnerabilities and how to
+                    avoid them. Nowadays I have knowledge of OWASP (Open Web Application Security Project),
+                    Hydra, Medusa, Aircrack, Bluesniff, Nmap, VM's, Kali Linux, and other tools,
+                    learning how to maintain a secure system and also teaching these skills to others.
+                    <br>
+                    I also studied information security in my technician, knowing how to avoid problems not only in
+                    Web applications as well as networks, servers, wireless, hardware, mobile devices
+                    and structural. Therefore, I can consider myself an information security technician as well.
+                    <br>
+                    In the video below you can see a successful pentester job while working
+                    as a freelancer, this work was completely ethical and I have permission to use it in my<span class="terminal_cursor"></span>
+                  </p>
+                  <p class="text-warning p-3" v-if="selectlanguage === 'Deutsch'">
+                    Nachdem ich begonnen hatte, mit dem Programmieren zu arbeiten, war einer meiner
+                    Zu seinen Aufgaben gehörte die Durchführung von Sicherheitstests für Anwendungen
+                    Dies führte dazu, dass ich von Kunden mehr über Schwachstellen und deren Vorgehensweise erfuhr
+                    vermeide sie. Heutzutage habe ich Kenntnisse über OWASP (Open Web Application Security Project),
+                    Hydra, Medusa, Aircrack, Bluesniff, Nmap, VMs, Kali Linux und andere Tools,
+                    Lernen, wie man ein sicheres System aufrechterhält, und diese Fähigkeiten auch anderen beibringen.
+                    <br>
+                    Ich habe auch Informationssicherheit in meinem Techniker studiert und wusste, wie man Probleme nicht nur in vermeidet
+                    Webanwendungen sowie Netzwerke, Server, WLAN, Hardware, mobile Geräte
+                    und strukturell. Daher kann ich mich auch als Informationssicherheitstechniker bezeichnen.
+                    <br>
+                    Im Video unten sehen Sie einen erfolgreichen Pentester-Job während der Arbeit
+                    Als Freiberufler war diese Arbeit völlig ethisch und ich habe die Erlaubnis, sie in meinem zu verwenden<span class="terminal_cursor"></span>
+                  </p>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <video class="mt-2" controls>
+            <source src="./img/01.GetingAccess.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+      `
+  });
+  const appNome = Vue.createApp({
+    data() {
+      return {
+          texto: 'You',
+          selectlanguage: 'English'
+      };
+    },
+  methods: {
+    trocarTexto(){
+      const app = Vue.createApp({
+      data() {
+          return {
+              selectedLanguage: ''
+          }
+        }
+      })
+      app.mount('#app')
+  }
+  },
+    template: `
+    <div class="row mb-2">
+    <section id="person" class="align-center col-md-6">
+      <div class="semi-person">
+        <div class="hello-person">
+            <h1>Hey, {{ texto }}! <span></span></h1>
+            <h1 v-if="selectlanguage === 'Portuguese'">Conheça: <span></span></h1>
+            <h1 v-if="selectlanguage === 'English'">Let's know: <span></span></h1>
+            <h1 v-if="selectlanguage === 'Deutsch'">Lass uns treffen: <span></span></h1>
+            <h1>Cristian Oliveira <span></span></h1>
+        </div>
+      </div> 
+    </section>
+    <section id="aboutMe" class="col-md-6">
+      <div class="semi-person">
+        <div id="inputs" class="row">
+          <div id="nome" class="wave-group mt-5 ms-4 col-md-6">
+            <input required="" v-model="texto" type="text" class="input">
+            <span class="bar"></span>
+            <label class="label">
+              <span class="label-char" style="--index: 0">N</span>
+              <span class="label-char" style="--index: 1">a</span>
+              <span class="label-char" style="--index: 2">m</span>
+              <span class="label-char" style="--index: 3">e</span>
+            </label>
+          </div>
+          <div class="radio-inputs mt-4 col-md-6">
+            <label for="Portuguese">
+              <input id="Portuguese" value="Portuguese" class="radio-input" type="radio" name="engine" v-model="selectlanguage">
+                <span class="radio-tile">
+                  <span class="radio-icon">
+                    <img src="./img/brazil.svg" alt="Change to Portuguese" srcset="">
+                  </span>
+                  <span class="radio-label">Portuguese</span>
+                </span>
+            </label>
+            <label for="English">
+              <input id="English" value="English" checked="" class="radio-input" type="radio" name="engine" v-model="selectlanguage">
+              <span class="radio-tile">
+                <span class="radio-icon">
+                  <img src="./img/usa.svg" alt="Change to English-USA" srcset="">
+                </span>
+                <span class="radio-label">English-USA</span>
+              </span>
+            </label>
+            <label for="Deutsch">
+              <input id="Deutsch" value="Deutsch" class="radio-input" type="radio" name="engine" v-model="selectlanguage">
+              <span class="radio-tile">
+                <span class="radio-icon">
+                  <img src="./img/germany.svg" alt="Change to German" srcset="">
+                </span>
+                <span class="radio-label">Deutsch</span>
+              </span>
+            </label>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  </div>
+
+  <div class="row skills">
+    <div class="stacks-content col-md-4">
+      <h3>Developer Web <span></span></h3>
+      <div class="stacks">
+          <div class="m-3">
+            <img src="./img/html.svg" alt="HTML">
+            <img src="./img/css.svg" alt="CSS">
+            <img src="./img/bootstrap.svg" alt="Bootstrap">
+            <img src="./img/js.svg" alt="JavaScript">
+          </div>
+          <div class="m-3">
+            <img src="./img/vue.svg" alt="Vue.Js">
+            <img src="./img/php.png" alt="PHP">
+            <img src="./img/laravel-svgrepo-com.svg" alt="Laravel">
+            <img src="./img/postgresql.svg" alt="PostgreSQL">
+          </div>
+      </div>
+    </div>
+    <div class="stacks-content col-md-4">
+      <h3>UI/UX Web Designer <span></span></h3>
+      <div class="stacks">
+          <div class="m-3">
+            <img src="./img/illustrator.svg" alt="Adobe Illustrator">
+            <img src="./img/photoshop.svg" alt="Adobe Photoshop">
+            <img src="./img/adobe-premiere-pro.svg" alt="Adobe Premiere">
+            <img src="./img/sass.svg" alt="SASS/SCSS">
+          </div>
+      </div>
+    </div>
+    <div class="stacks-content col-md-4">
+      <h3>Pentester Web <span></span></h3>
+      <div class="stacks">
+          <div class="m-3">
+            <img src="./img/hydra-svgrepo-com.svg" alt="Hydra">
+            <img src="./img/kalilinux-svgrepo-com.svg" alt="Kali Linux">
+            <img src="./img/Zap.png" alt="OWASP ZAP">
+            <img width="64" height="64" src="https://shorturl.at/fgpHJ" alt="White Hat"/>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="DeveloperWeb" class="row my-3  animated-element">
+    <div class="col-12">
+      <h1 class="text-title"> Develop Web</h1>
+    </div>
+    <!-- front-end -->
+    <div class="row animated-element justify-content-center align-items-center">
+      <div class="col-md-6 container justify-content-center d-flex">
+        <img src="./img/WebDevelop.png" alt="" style="width: 400px; margin-left: 4em;">
+      </div>
+      <div class="col-md-6 container justify-content-center d-flex">
+        <div class="code-editor">
+          <div class="header">
+            <span class="title">Front-End</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path> </g></svg>
+          </div>
+          <div class="editor-content">
+            <code class="code">
+              <p><span class="color-0">.MySkills </span> <span>{</span></p>
+    
+              <p class="property">
+                <span class="color-2">min-skills:</span><span>:</span>
+                <span class="color-1" v-if="selectlanguage === 'Portuguese'">Quando falamos de front-end posso dizer que algumas das minhas principais ferramentas são
+                  as que eu uso também no Web Designer, em termos de linguagem eu sempre busco trazer responsividade tanto para mobile
+                  quanto para desktop, também para vários outros tamanhos de tela.
+                  Além de  HTML, CSS e JavaScript eu utilizo frameworks como o Vue.Js, JQuery, Bootstrap, Uiverse.io, entre outros
+                  que estão sendo usados neste portifólio.
+                  <br>
+                  Fora da parte do Designer, eu como pentester, também entendo que a segurança está nas minímas partes, Por
+                  isso uso cada framework com cautela já que usa-los de forma erradica pode gerar uma brecha para ataques.
+                  Sendo assim se você é pentester e está neste portifólio tem permissão de tentar algum ataque nele, assim como
+                  pode tentar ajustar a tela para tamanhos maiores, menores e no modo android para comprovar a responsividades da
+                  página.
+                  <br>
+                  Como Front-End/WebDesigner em minha antiga empresa fui encarregado pela criação dos Designers de temporadas, fazendo
+                  com que o layout e o estilo do site mudasse de acordo com a data, por exemplo: no ano-novo fazia um céu com fogos
+                  de artifício.
+                  <br>
+                  Já a minha formação em front-end começou em 2020 quando entrei para a escola técnica EETEPA Dr. Celso Malcher que em
+                  2023 foi considerada a melhor escola técnica de sua categoria da região norte do país, com boas notas e participações
+                  principalmente nas disciplinas de Desenvolvimento Web.
+                </span>
+                <span class="color-1" v-if="selectlanguage === 'English'">When we talk about front-end I can say that some of my main tools are
+                  the ones I also use in Web Designer, in terms of language I always try to bring responsiveness to both mobile
+                  as for desktop, also for various other screen sizes.
+                  In addition to HTML, CSS and JavaScript, I use frameworks and others tools such as Vue.Js, JQuery, Bootstrap, Uiverse.io, among others
+                  that are being used in this portfolio.
+                  <br>
+                  Outside of the Designer part, as a pentester, I also understand that security is in the smallest parts,
+                  Therefore, I use each framework with caution as using them in an inappropriate way can create an opening for attacks.
+                  Therefore, if you are a pentester and are in this portfolio, you are allowed to attempt any attack on it, just like
+                  You can try adjusting the screen to larger, smaller sizes and in Android mode to check the responsiveness of the screen.
+                  page.
+                  <br>
+                  As a Front-End/WebDesigner in my former company, I was in charge of creating Season Designers, making
+                  so that the layout and style of the website changed according to the date, for example: on New Year's there was a sky with fireworks
+                  of artifice.
+                  <br>
+                  My front-end training began in 2020 when I entered the EETEPA Dr. Celso Malcher technical school, which in
+                  2023 was considered the best technical school in its category in the northern region of the country, with good grades and participation
+                  mainly in the Web Development disciplines.
+                </span>
+                <span class="color-1" v-if="selectlanguage === 'Deutsch'">Wenn wir über Frontend sprechen, kann ich sagen, dass einige meiner wichtigsten Tools Folgendes sind
+                  diejenigen, die ich auch im Web Designer verwende, in Bezug auf die Sprache versuche ich immer, Reaktionsfähigkeit auf beide Mobilgeräte zu bringen
+                  Wie für den Desktop, auch für verschiedene andere Bildschirmgrößen.
+                  Neben HTML, CSS und JavaScript verwende ich unter anderem Frameworks wie Vue.Js, JQuery, Bootstrap, Uiverse.io
+                  die in diesem Portfolio verwendet werden.
+                  <br>
+                  Außerhalb des Designer-Teils verstehe ich als Pentester auch, dass Sicherheit in den kleinsten Teilen steckt,
+                  Daher verwende ich jedes Framework mit Vorsicht, da eine unangemessene Verwendung eine Angriffsfläche schaffen kann.
+                  Wenn Sie also ein Pentester sind und sich in diesem Portfolio befinden, dürfen Sie jeden Angriff darauf versuchen, genau wie
+                  Sie können versuchen, den Bildschirm auf größere, kleinere Größen anzupassen und im Android-Modus die Reaktionsfähigkeit des Bildschirms zu überprüfen.
+                  Seite.
+                  <br>
+                  Als Frontend-/Webdesigner in meiner früheren Firma war ich für die Erstellung und Erstellung von Saisondesignern verantwortlich
+                  sodass sich Layout und Stil der Website je nach Datum änderten, zum Beispiel: An Neujahr gab es einen Himmel mit Feuerwerk
+                  der Künstlichkeit.
+                  <br>
+                  Meine Front-End-Ausbildung begann im Jahr 2020, als ich die technische Schule EETEPA Dr. Celso Malcher betrat, die in
+                  2023 galt mit guten Noten und guter Beteiligung als beste technische Schule ihrer Kategorie in der nördlichen Region des Landes
+                  hauptsächlich in den Disziplinen Webentwicklung.
+                </span>
+              </p>
+              <span>}</span>
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- back-end -->
+    <div class="row animated-element justify-content-center align-items-center" style="margin: 2em;">
+      <div class="col-md-7">
+        <div class="card-be">
+          <div class="header-be">
+            <div class="top-be">
+              <div class="circle-be">
+                <span class="red-be circle2-be"></span>
+              </div>
+              <div class="circle-be">
+                <span class="yellow-be circle2-be"></span>
+              </div>
+              <div class="circle-be">
+                <span class="green-be circle2-be"></span>
+              </div>
+              <div class="title-be">
+                <p id="title2-be">BackEnd.php</p>
+              </div>
+            </div>
+          </div>
+          <div class="code-container-be">
+            <textarea readonly="" name="code" id="code-be" class="area-be color-0" v-if="selectlanguage === 'Portuguese'">
+              <?php
+              include './backend/functions.php';
+
+              foreach (skills as key => value) 
+              {
+                $value['BackEndSkillsDescription'];
+                $value['skills'] = "
+
+                  Tendo como primeira linguagem de programação o PHP me sinto 
+                  bem familiarizado com a estrutura do código e suas funções na web. 
+                  Quando trabalhei como desenvolvedor web eu utilizava o PHP puro, porém
+                  após ter saído comecei a me dedicar a aprender Laravel e agora atualmente
+                  tenho projetos rodando em laravel, que se tornou meu framework preferido
+                  pelo menos até agr em empate com o Vue.Js do front.
+
+                  Embora isso devo dizer que quando se trata de usar o PHP para 
+                  segurança de dados é onde não falho, e digo isso não apenas sobre 
+                  SQLInjections mas também sobre XSS, CSRF, Criptografia, segurança
+                  de senhas e autenticação de clientes. Seja através do Laravel, seja
+                  através do PHP puro.
+
+                  Em relação a Banco de Dados utilizei o PostgreSQL para consultas
+                  e criações de queries, ainda não satisfeito com minhas habilidades
+                  com banco de dados busco agora aprender sobre cloud computing e com isso
+                  banco de dados em nuvem e hospedagem de dados.
+
+                  Minha formação no back-end veio junto com a de front começando em 
+                  2020, em minha escola técnica comecei a estudar Bando de dados e 
+                  JAVA voltado à programação orientada a objeto, porém meu primeiro 
+                  emprego na aréa tive que usar o php, o que me adaptei e me acostumei
+                  a usar hoje em dia, mas ainda sim estou começando a estudar Assembly e Python.
+                ";
+              }
+
+              echo json_encode(skills, JSON_PRETTY_PRINT);
+              ?>
+            </textarea>
+            <textarea readonly="" name="code" id="code-be" class="area-be color-0" v-if="selectlanguage === 'English'">
+              <?php
+              include './backend/functions.php';
+
+              foreach (skills as key => value) 
+              {
+                $value['BackEndSkillsDescription'];
+                $value['skills'] = "
+
+                  Having PHP as my first programming language makes me feel 
+                  well familiar with the code structure and its functions on the web. 
+                  When I worked as a web developer I used pure PHP, however
+                  After leaving I started dedicating myself to learning Laravel and now
+                  I have projects running in Laravel, which has become my favorite framework
+                  at least until now in a tie with Vue.Js on the front.
+
+                  Although I must say that when it comes to using PHP to 
+                  Data security is where I don't fail, and I say that not just about 
+                  SQLInjections but also about XSS, CSRF, Cryptography, security
+                  passwords and customer authentication. Whether through Laravel or
+                  through pure PHP.
+
+                  Regarding the Database, I used PostgreSQL for queries
+                  and creating queries, still not satisfied with my skills
+                  with database I now seek to learn about cloud computing and with that
+                  cloud database and data hosting.
+
+                  My back-end training came together with my front-end training starting in 
+                  2020, at my technical school I started studying Database and 
+                  JAVA aimed at object-oriented programming, but my first 
+                  job in the area I had to use PHP, which I adapted and got used to
+                  to use nowadays, but I'm still starting to study Assembly and Python.
+                ";
+              }
+
+              echo json_encode(skills, JSON_PRETTY_PRINT);
+              ?>
+            </textarea>
+            <textarea readonly="" name="code" id="code-be" class="area-be color-0" v-if="selectlanguage === 'Deutsch'">
+              <?php
+              include './backend/functions.php';
+
+              foreach (skills as key => value) 
+              {
+                $value['BackEndSkillsDescription'];
+                $value['skills'] = "
+
+                  PHP als meine erste Programmiersprache zu haben, gibt mir ein Gefühl 
+                  mit der Codestruktur und seinen Funktionen im Web gut vertraut sind. 
+                  Als ich als Webentwickler gearbeitet habe, habe ich jedoch reines PHP 
+                  verwendet Nachdem ich gegangen war, widmete ich mich dem Erlernen von 
+                  Laravel und jetzt Ich habe Projekte in Laravel ausgeführt, das zu meinem 
+                  Lieblingsframework geworden ist Zumindest bis jetzt im Gleichstand mit 
+                  Vue.Js an der Spitze.
+
+                  Obwohl ich das sagen muss, wenn es um die Verwendung von PHP geht 
+                  Bei der Datensicherheit verliere ich nichts, und das sage ich nicht nur 
+                  SQLInjections, aber auch über XSS, CSRF, Kryptographie, Sicherheit
+                  Passwörter und Kundenauthentifizierung. Ob durch Laravel oder
+                  durch reines PHP.
+
+                  Bezüglich der Datenbank habe ich PostgreSQL für Abfragen verwendet
+                  und das Erstellen von Abfragen, immer noch nicht zufrieden mit meinen 
+                  Fähigkeiten Mit Datenbank möchte ich jetzt etwas über Cloud Computing 
+                  lernen und damit Cloud-Datenbank und Datenhosting.
+
+                  Meine Back-End-Ausbildung ging mit meiner Front-End-Ausbildung einher 
+                  2020 begann ich an meiner technischen Schule mit dem Studium von 
+                  Datenbanken und JAVA zielte auf objektorientierte Programmierung 
+                  ab, aber mein erstes Bei meinem Job in der Gegend musste ich PHP 
+                  verwenden, was ich adaptierte und an das ich mich gewöhnte Heutzutage zu 
+                  verwenden, aber ich fange immer noch an, Assembly und Python zu studieren.
+                ";
+              }
+
+              echo json_encode(skills, JSON_PRETTY_PRINT);
+              ?>
+            </textarea>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-md-5">
+        <img src="./img/backend.png" alt="" style="width: 400px; margin-left: 4em;">
+      </div>
+    </div>
+  </div>
+
+  <div id="WebDesigner" class="row my-3 animated-element">
+    <div class="col-12">
+      <h1 class="text-title"> Web Designer </h1>
+    </div>
+    <div class="row animated-element">
+      <div class="col-md-6 container justify-content-center d-flex">
+        <img src="./img/webdesigner.svg" alt="" srcset="">
+      </div>
+      <div class="col-md-6 container justify-content-center d-flex align-items-center">
+        <div class="package-wb">
+          <div class="package2-wb">
+            <p class="text-wb" v-if="selectlanguage === 'Portuguese'">
+              Sobre o Web Designer, acredito que você já deve ter
+              observado as animações deste portifólio, assim como as cores, 
+              figuras, icones, textos e tudo mais, tudo o que for visivel
+              nessa página é parte das minhas habilidades como Web Designer.
+
+              As ferramentas que eu uso vão de aplicativos gráficos até linguagens
+              e sites: Extenções, Illustrator, Photoshop, Premiere, Freepik, Uiverse e
+              Adobe Color são algumas dessas feramentas. Fora isso na parte de código
+              eu tenho capacidades para criar e modificar svgs e conhecimentos sobre a
+              linguagem SASS/SCSS.
+
+              É importante ressaltar aqui que apenas uno minhas habilidades de Designer
+              com minhas habilidades de programador, o que faz eu conseguir realizar estes
+              trabalhos com mais naturalidade e até mais fácil, porém sempre é trabalhoso,
+              afinal um arquivo CSS normalmente tem muito mais linhas do que um arquivo PHP
+              (ao menos eu gosto de trabalhar com php usando includes).
+
+              Dito isto deixo claro que além de trabalhar como programador possuo capacidades
+              para atuar como designer em um cargo iniciando.
+              Sobre minhas previsões pro futuro nessa aréa eu planejo estudar tailwind, wordpress e figma.
+            </p>
+            <p class="text-wb" v-if="selectlanguage === 'English'">
+              About the Web Designer, I believe you may already have
+              observed the animations of this portfolio, as well as the colors, 
+              figures, icons, texts and everything else, everything that is visible
+              on this page is part of my skills as a Web Designer.
+
+              The tools I use range from graphical applications to languages
+              and websites: Extensions, Illustrator, Photoshop, Premiere, Freepik, Uiverse and
+              Adobe Color are some of these tools. Other than that in the code part
+              I have skills to create and modify svgs and knowledge about
+              SASS/SCSS language.
+
+              It is important to highlight here that I only combine my Designer skills
+              with my programming skills, what makes me able to carry out these
+              work more naturally and even easier, but it is always laborious,
+              After all, a CSS file usually has many more lines than a PHP file
+              (at least I like working with PHP using includes).
+
+              Having said this, I make it clear that in addition to working as a programmer, I have skills
+              to work as a designer in an entry-level position.
+              Regarding my predictions for the future in this area, I plan to study tailwind, wordpress and figma.
+            </p>
+            <p class="text-wb" v-if="selectlanguage === 'Deutsch'">
+              Was den Webdesigner betrifft, glaube ich, dass Sie ihn vielleicht bereits kennen
+              beobachtete die Animationen dieses Portfolios sowie die Farben, 
+              Figuren, Symbole, Texte und alles andere, alles, was sichtbar ist
+              auf dieser Seite ist Teil meiner Fähigkeiten als Webdesigner.
+
+              Die Tools, die ich verwende, reichen von grafischen Anwendungen bis hin zu Sprachen
+              und Websites: Erweiterungen, Illustrator, Photoshop, Premiere, Freepik, Uiverse und
+              Adobe Color sind einige dieser Tools. Anders als das im Codeteil
+              Ich habe Fähigkeiten zum Erstellen und Ändern von SVGs und Kenntnisse darüber
+              SASS/SCSS-Sprache.
+
+              An dieser Stelle ist es wichtig hervorzuheben, dass ich nur meine Designerfähigkeiten kombiniere
+              Was macht mich mit meinen Programmierkenntnissen dazu in der Lage, diese durchzuführen?
+              arbeiten natürlicher und noch einfacher, aber es ist immer mühsam,
+              Schließlich hat eine CSS-Datei in der Regel viel mehr Zeilen als eine PHP-Datei
+              (Zumindest gefällt mir die Arbeit mit PHP unter Verwendung von Includes).
+
+              Allerdings möchte ich klarstellen, dass ich neben meiner Arbeit als Programmierer auch über Fähigkeiten verfüge
+              als Designer in einer Einstiegsposition zu arbeiten.
+              Was meine Prognosen für die Zukunft in diesem Bereich betrifft, plane ich, Rückenwind, WordPress und Figma zu studieren.
+            </p>
+          </div>
+        </div>        
+      </div>
+    </div>
+    <div class="row animated-element">
+      <div class="col-md-6 container justify-content-center d-flex">
+        <div class="card-container-wd2 ms-5 mt-5">
+          <div class="card-wd2">
+            <div class="front-content-wd2">
+              <p v-if="selectlanguage === 'Portuguese'">Resumo</p>
+              <p v-if="selectlanguage === 'English'">Report</p>
+              <p v-if="selectlanguage === 'Deutsch'">Zusammenfassung</p>
+            </div>
+            <div class="content-wd2" v-if="selectlanguage === 'Portuguese'">
+              <p class="heading-wd2">Notas Finais</p>
+              <p>
+                Tive experiências primárias como WebDesigner freelance antes
+                da programação, ao entrar no mercado da programação consegui
+                unir ambas habilidades para um seviço otimizado, tenho qualidades
+                boas o suficiente para trabalhar como designer mas para um aproveitamento
+                melhor é de sensatez que eu trabalhe na aréa de Programação Web.
+              </p>
+            </div>
+            <div class="content-wd2" v-if="selectlanguage === 'English'">
+              <p class="heading-wd2">Final Notes</p>
+              <p>
+                I had primary experience as a freelance Web Designer before
+                of programming, when entering the programming market I managed to
+                combining both skills for an optimized service, I have qualities
+                good enough to work as a designer but to benefit from
+                It would be wiser for me to work in the area of ​​Web Programming.
+              </p>
+            </div>
+            <div class="content-wd2" v-if="selectlanguage === 'Deutsch'">
+              <p class="heading-wd2">Schlussbemerkungen</p>
+              <p>
+                Ich hatte zuvor hauptsächlich Erfahrung als freiberuflicher Webdesigner
+                Als ich in den Programmiermarkt einstieg, gelang mir das
+                Wenn ich beide Fähigkeiten für einen optimierten Service kombiniere, habe ich Qualitäten
+                gut genug, um als Designer zu arbeiten, aber auch, um davon zu profitieren
+                Für mich wäre es klüger, im Bereich Webprogrammierung zu arbeiten.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 container justify-content-center d-flex">
+        <img src="./img/developer.svg" alt="" style="width: 400px; margin-left: 8em;">>
+      </div>
+    </div>
+  </div>
+
+  <div id="Pentester" class="row my-3 animated-element">
+    <div class="col-12">
+      <h1 class="text-title">Pentester</h1>
+    </div>
+    <div class="row animated-element justify-content-center">
+      <div class="col-md-6 container justify-content-center d-flex">
+        <div class="container-pen mt-1">
+          <div class="container_terminal"></div>
+            <div class="terminal_toolbar">
+                <div class="butt-pen">
+                    <button class="btn-pen btn-color-pen"></button>
+                    <button class="btn-pen"></button>
+                    <button class="btn-pen"></button>
+                </div>
+                <p class="user-pen">Cristian0800@root: ~</p>
+            </div>
+            <div class="terminal_body">
+              <div class="terminal_promt">
+                  <span class="terminal_user">Cristian0800@root:</span>
+                  <span class="terminal_location">~</span>
+                  <span class="terminal_bling">$</span>
+                </div>
+                <p class="text-warning p-3" v-if="selectlanguage === 'Portuguese'">
+                  Após ter começado a trabalhar com programação uma das minhas
+                  responsabilidades  era realizar testes de segurança nas aplicações
+                  dos clientes, isso me levou a aprender sobre vulnerabilidades e como
+                  evitar elas. Hoje em dia possuo conhecimentos do OWASP (Open Web Application Security Project),
+                  Hydra, Medusa, Aircrack, Bluesniff, Nmap, VM's, Kali Linux, e de outras ferramentas,
+                  aprendendo assim como manter um sistema seguro ensinando também essas habilidade aos outros.
+                  <br>
+                  Também estudei segurança da informação em meu técnico, sabendo evitar problemas não só de
+                  aplicações Web como também de redes, servidores, wireless, hardware, dispositivos ,móveis
+                  e estrutural. Podendo assim me considerar um técnico de segurança da informação também.
+                  <br>
+                  No video ao lado você pode ver um trabalho de pentester bem sucedido enquanto trabalhava
+                  de freelancer, este trabalho foi completamente ético e tenho permissões para usar em meu 
+                  porifólio<span class="terminal_cursor"></span>
+                </p>
+                <p class="text-warning p-3" v-if="selectlanguage === 'English'">
+                  After having started working with programming, one of my
+                  responsibilities was to perform security tests on applications
+                  from customers, this led me to learn about vulnerabilities and how to
+                  avoid them. Nowadays I have knowledge of OWASP (Open Web Application Security Project),
+                  Hydra, Medusa, Aircrack, Bluesniff, Nmap, VM's, Kali Linux, and other tools,
+                  learning how to maintain a secure system and also teaching these skills to others.
+                  <br>
+                  I also studied information security in my technician, knowing how to avoid problems not only in
+                  Web applications as well as networks, servers, wireless, hardware, mobile devices
+                  and structural. Therefore, I can consider myself an information security technician as well.
+                  <br>
+                  In the video below you can see a successful pentester job while working
+                  as a freelancer, this work was completely ethical and I have permission to use it in my<span class="terminal_cursor"></span>
+                </p>
+                <p class="text-warning p-3" v-if="selectlanguage === 'Deutsch'">
+                  Nachdem ich begonnen hatte, mit dem Programmieren zu arbeiten, war einer meiner
+                  Zu seinen Aufgaben gehörte die Durchführung von Sicherheitstests für Anwendungen
+                  Dies führte dazu, dass ich von Kunden mehr über Schwachstellen und deren Vorgehensweise erfuhr
+                  vermeide sie. Heutzutage habe ich Kenntnisse über OWASP (Open Web Application Security Project),
+                  Hydra, Medusa, Aircrack, Bluesniff, Nmap, VMs, Kali Linux und andere Tools,
+                  Lernen, wie man ein sicheres System aufrechterhält, und diese Fähigkeiten auch anderen beibringen.
+                  <br>
+                  Ich habe auch Informationssicherheit in meinem Techniker studiert und wusste, wie man Probleme nicht nur in vermeidet
+                  Webanwendungen sowie Netzwerke, Server, WLAN, Hardware, mobile Geräte
+                  und strukturell. Daher kann ich mich auch als Informationssicherheitstechniker bezeichnen.
+                  <br>
+                  Im Video unten sehen Sie einen erfolgreichen Pentester-Job während der Arbeit
+                  Als Freiberufler war diese Arbeit völlig ethisch und ich habe die Erlaubnis, sie in meinem zu verwenden<span class="terminal_cursor"></span>
+                </p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6 container justify-content-center d-flex">
+        <video class="ms-4" controls>
+          <source src="./img/01.GetingAccess.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="row animated-element"></div>
+  </div>
+    `
+  });
+  
+  $(window).scroll(function() {
+    $('.animated-element').each(function() {
+      var position = $(this).offset().top;
+      var scrollPosition = $(window).scrollTop();
+      var windowHeight = $(window).height();
+
+      if (position < scrollPosition + windowHeight) {
+          $(this).addClass('visible');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
