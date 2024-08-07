@@ -814,8 +814,8 @@ section .semi-person {
 }
 
 .container-pen {
-    width: 412px;
-    height: 345px;
+    width: 385px;
+    height: 360px;
   }
   
   .terminal_toolbar {
@@ -936,7 +936,7 @@ section .semi-person {
   } 
 
 video {
-    height: 234px;
+    height: 222px;
     border-radius: 20px;
     border: solid #f65f5f;
 }
