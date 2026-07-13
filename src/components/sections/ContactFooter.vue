@@ -2,6 +2,7 @@
 import { ArrowUpRight } from '@lucide/vue'
 
 import AppContainer from '@/components/base/AppContainer.vue'
+import AccessibilityWidget from '@/components/base/AccessibilityWidget.vue'
 import { profileLinks } from '@/data/navigation'
 import { useI18n } from '@/i18n'
 
@@ -32,11 +33,6 @@ const { t } = useI18n()
       </p>
     </AppContainer>
 
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
-    </div>
+    <AccessibilityWidget />
   </footer>
 </template>
