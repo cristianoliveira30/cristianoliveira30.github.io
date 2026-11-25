@@ -1,22 +1,22 @@
 # Portfolio — Cristian Oliveira
 
-Portfólio estático desenvolvido com Vue 3, TypeScript, Vite e Tailwind CSS.
+Static portfolio built with Vue 3, TypeScript, Vite and Tailwind CSS, available in English, Portuguese (Brazil) and German. The default language follows the browser language (English as fallback).
 
-## Requisitos
+## Requirements
 
-- Node.js 20.19+ ou 22.12+
+- Node.js 20.19+ or 22.12+
 - npm 10+
 
-## Desenvolvimento
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-O Vite exibirá a URL local, normalmente `http://localhost:5173`.
+Vite prints the local URL, usually `http://localhost:5173`.
 
-## Verificações
+## Checks
 
 ```bash
 npm run type-check
@@ -24,26 +24,37 @@ npm run build
 npm run preview
 ```
 
-O conteúdo de `dist/` é formado apenas por arquivos estáticos e pode ser publicado no GitHub Pages.
+The contents of `dist/` are static files and can be published on GitHub Pages.
 
-## Publicação
+## Publishing
 
-O workflow em `.github/workflows/deploy.yml` compila o projeto com Node 22 e publica somente `dist/` no GitHub Pages quando a branch `main` recebe um push.
+`.github/workflows/deploy.yml` builds the project with Node 22 and publishes `dist/` to GitHub Pages whenever the `master` branch receives a push.
 
-## Estrutura
+## Content
+
+All text lives in `src/i18n/messages.ts` (one dictionary per language). Structured content is in `src/data/`:
+
+- `projects.ts`: project cards (images, technologies, links)
+- `experience.ts`: experience and education
+- `skills.ts`: skill groups
+- `navigation.ts`: navigation, profile links, email and CV files
+
+Résumé files (`.docx`, English and Brazilian Portuguese) are served from `public/cv/`.
+
+## Structure
 
 ```text
 src/
-├── assets/       # Imagens e ícones locais
+├── assets/       # Local images and architecture diagrams
 ├── components/
-│   ├── base/     # Primitivos reutilizáveis do Design System
-│   └── sections/ # Seções do portfólio
-├── composables/  # Comportamentos reutilizáveis
-├── constants/    # Configurações e valores imutáveis
-├── data/         # Conteúdo tipado do portfólio
-├── layouts/      # Estruturas de página
-├── styles/       # CSS global e tokens
-├── types/        # Tipos compartilhados
-├── App.vue       # Composição da página
-└── main.ts       # Ponto de entrada
+│   ├── base/     # Reusable primitives
+│   └── sections/ # Page sections
+├── composables/  # Reusable behaviour
+├── data/         # Typed portfolio content
+├── i18n/         # Dictionaries and locale handling
+├── layouts/      # Page structure
+├── styles/       # Global CSS and tokens
+├── types/        # Shared types
+├── App.vue       # Page composition
+└── main.ts       # Entry point
 ```

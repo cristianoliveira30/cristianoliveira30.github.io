@@ -20,7 +20,7 @@ const title = computed(() => t(props.project.titleKey))
     :aria-label="project.demoUrl ? t('projects.openDemo', { name: title }) : undefined"
   >
     <picture class="project-desktop-preview">
-      <source :srcset="`${project.image.small} 768w, ${project.image.large} 1280w`" sizes="(min-width: 1024px) 56vw, 100vw" type="image/webp" />
+      <source :srcset="`${project.image.small} 768w, ${project.image.large} 1280w`" sizes="(min-width: 1024px) 56vw, 100vw" :type="project.image.type ?? 'image/webp'" />
       <img :src="project.image.large" :alt="t(project.image.altKey)" width="1280" height="800" loading="lazy" decoding="async" />
     </picture>
     <picture v-if="project.image.mobile" class="project-mobile-preview">

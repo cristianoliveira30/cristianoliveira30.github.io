@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowUpRight, Check, CodeXml, Clock3, ExternalLink } from '@lucide/vue'
+import { ArrowUpRight, Check, CodeXml, ExternalLink, Lock } from '@lucide/vue'
 
 import type { Project } from '@/types/portfolio'
 import ProjectMedia from '@/components/sections/ProjectMedia.vue'
@@ -47,9 +47,9 @@ const { t } = useI18n()
           <ExternalLink aria-hidden="true" :size="16" />
           {{ t('projects.demo') }}
         </a>
-        <span v-if="!project.codeUrl && !project.demoUrl" class="project-status">
-          <Clock3 aria-hidden="true" :size="16" />
-          {{ t('projects.soon') }}
+        <span v-if="!project.codeUrl && !project.demoUrl && project.linkNoteKey" class="project-status">
+          <Lock aria-hidden="true" :size="16" />
+          {{ t(project.linkNoteKey) }}
         </span>
       </div>
     </div>

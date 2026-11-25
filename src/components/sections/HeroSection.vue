@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { MapPin } from '@lucide/vue'
+import { computed } from 'vue'
+
 import AppButton from '@/components/base/AppButton.vue'
 import AppContainer from '@/components/base/AppContainer.vue'
 import BrandIcon from '@/components/base/BrandIcon.vue'
@@ -7,7 +10,8 @@ import ProfileCodePanel from '@/components/sections/ProfileCodePanel.vue'
 import { profileLinks } from '@/data/navigation'
 import { useI18n } from '@/i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+const cvHref = computed(() => (locale.value === 'pt' ? profileLinks.cvPt : profileLinks.cvEn))
 </script>
 
 <template>
@@ -24,9 +28,14 @@ const { t } = useI18n()
         <p class="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
           {{ t('hero.description') }}
         </p>
+        <p class="mt-5 flex items-center gap-2 text-sm text-zinc-400">
+          <MapPin class="shrink-0 text-blue-400" aria-hidden="true" :size="16" />
+          {{ t('hero.location') }}
+        </p>
 
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
           <AppButton href="#projetos">{{ t('hero.projects') }}</AppButton>
+          <AppButton :href="cvHref" variant="secondary" download>{{ t('hero.cv') }}</AppButton>
         </div>
 
         <div class="mt-8 flex flex-wrap gap-6">

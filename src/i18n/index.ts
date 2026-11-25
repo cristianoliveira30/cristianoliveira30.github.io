@@ -12,9 +12,27 @@ interface I18nContext {
   t: (key: MessageKey, values?: Record<string, string>) => string
 }
 
+function detectLocale(): Locale {
+  const [language = ''] = (navigator.languages?.[0] ?? navigator.language ?? '').toLowerCase().split('-')
+  return language === 'pt' || language === 'de' ? language : 'en'
+}
+
 function savedLocale(): Locale {
-  const value = localStorage.getItem(STORAGE_KEY)
-  return value === 'en' || value === 'de' || value === 'pt' ? value : 'pt'
+  try {
+    const value = localStorage.getItem(STORAGE_KEY)
+    if (value === 'en' || value === 'de' || value === 'pt') return value
+  } catch {
+    // storage can be unavailable (private mode); fall back to the browser language
+  }
+  return detectLocale()
+}
+
+function persistLocale(value: Locale): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, value)
+  } catch {
+    // ignore: the preference is only a convenience
+  }
 }
 
 export function createI18n() {
@@ -23,7 +41,7 @@ export function createI18n() {
     Object.entries(values).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, value), messages[locale.value][key])
 
   watch(locale, (value) => {
-    localStorage.setItem(STORAGE_KEY, value)
+    persistLocale(value)
     document.documentElement.lang = value === 'pt' ? 'pt-BR' : value
     document.title = messages[value]['meta.title']
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute('content', messages[value]['meta.description'])

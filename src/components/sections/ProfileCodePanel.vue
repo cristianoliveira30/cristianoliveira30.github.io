@@ -18,8 +18,10 @@ const lines = [
   [{ text: '  stack: {', tone: 'base' }],
   [{ text: "    backend: 'Laravel',", tone: 'green' }],
   [{ text: "    frontend: 'Vue 3',", tone: 'green' }],
+  [{ text: "    mobile: 'Flutter',", tone: 'green' }],
   [{ text: "    database: 'PostgreSQL',", tone: 'green' }],
   [{ text: "    infrastructure: 'Docker',", tone: 'green' }],
+  [{ text: "    ai: 'local-first',", tone: 'green' }],
   [{ text: '  },', tone: 'base' }],
   [{ text: '} as const', tone: 'blue' }],
 ] as const

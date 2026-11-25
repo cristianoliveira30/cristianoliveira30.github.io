@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BriefcaseBusiness, PanelsTopLeft, Server, SquareCode } from '@lucide/vue'
+import { BriefcaseBusiness, PanelsTopLeft, Server, Sparkles, SquareCode } from '@lucide/vue'
 import type { Component } from 'vue'
 
 import type { SkillGroup } from '@/types/portfolio'
@@ -15,6 +15,7 @@ const icons: Record<SkillGroup['icon'], Component> = {
   browser: SquareCode,
   desktop: PanelsTopLeft,
   tools: BriefcaseBusiness,
+  ai: Sparkles,
 }
 
 const accentClasses: Record<SkillGroup['accent'], string> = {

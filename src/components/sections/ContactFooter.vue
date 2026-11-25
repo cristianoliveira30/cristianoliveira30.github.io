@@ -19,12 +19,21 @@ const { t } = useI18n()
             {{ t('contact.title') }}
           </h2>
         </div>
-        <div class="flex gap-5">
+        <div class="flex flex-wrap gap-x-5 gap-y-3">
+          <a class="footer-link" :href="`mailto:${profileLinks.email}`">
+            {{ t('contact.email') }} <ArrowUpRight aria-hidden="true" :size="16" />
+          </a>
           <a class="footer-link" :href="profileLinks.github" target="_blank" rel="noreferrer">
             GitHub <ArrowUpRight aria-hidden="true" :size="16" />
           </a>
           <a class="footer-link" :href="profileLinks.linkedin" target="_blank" rel="noreferrer">
             LinkedIn <ArrowUpRight aria-hidden="true" :size="16" />
+          </a>
+          <a class="footer-link" :href="profileLinks.cvEn" download>
+            {{ t('contact.cvEn') }} <ArrowUpRight aria-hidden="true" :size="16" />
+          </a>
+          <a class="footer-link" :href="profileLinks.cvPt" download>
+            {{ t('contact.cvPt') }} <ArrowUpRight aria-hidden="true" :size="16" />
           </a>
         </div>
       </div>

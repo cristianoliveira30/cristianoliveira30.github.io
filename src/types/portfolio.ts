@@ -15,7 +15,7 @@ export interface SkillGroup {
   statusKey?: MessageKey
   descriptionKey: MessageKey
   skills: string[]
-  icon: 'server' | 'browser' | 'desktop' | 'tools'
+  icon: 'server' | 'browser' | 'desktop' | 'tools' | 'ai'
   accent: 'blue' | 'purple' | 'emerald'
 }
 
@@ -23,6 +23,7 @@ export interface ProjectImage {
   small: string
   large: string
   altKey: MessageKey
+  type?: string
   mobile?: ProjectImage
 }
 
@@ -36,4 +37,13 @@ export interface Project {
   image: ProjectImage
   codeUrl?: string
   demoUrl?: string
+  linkNoteKey?: MessageKey
+}
+
+export interface ExperienceItem {
+  id: string
+  roleKey: MessageKey
+  org?: string
+  periodKey: MessageKey
+  bulletKeys: MessageKey[]
 }
