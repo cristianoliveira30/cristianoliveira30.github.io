@@ -39,7 +39,7 @@ All text lives in `src/i18n/messages.ts` (one dictionary per language). Structur
 - `skills.ts`: skill groups
 - `navigation.ts`: navigation, profile links, email and CV files
 
-Résumé files (`.docx`, English and Brazilian Portuguese) are served from `public/cv/`.
+Résumé files (PDF, English and Brazilian Portuguese) are served from `public/cv/`.
 
 ## Structure
 
