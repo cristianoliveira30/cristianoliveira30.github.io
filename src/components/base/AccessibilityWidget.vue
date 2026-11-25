@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, useTemplateRef } from 'vue'
 
+import { whenButtonReady } from '@/lib/vlibrasDock'
+
 declare global {
   interface Window {
     VLibras?: {
@@ -18,6 +20,7 @@ function initializeWidget() {
 
   new window.VLibras.Widget(APPLICATION_URL)
   widgetRoot.value.dataset.initialized = 'true'
+  whenButtonReady()
 }
 
 onMounted(() => {
