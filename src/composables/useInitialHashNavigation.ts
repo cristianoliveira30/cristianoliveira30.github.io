@@ -14,7 +14,6 @@ export function useInitialHashNavigation(): void {
       document.documentElement.classList.add('scroll-immediate')
       target.scrollIntoView()
       target.querySelectorAll<HTMLElement>('[data-reveal]').forEach((element) => {
-        element.classList.remove('is-reveal-pending')
         element.classList.add('is-revealed')
       })
 

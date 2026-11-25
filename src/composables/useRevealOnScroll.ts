@@ -1,6 +1,13 @@
 import { onBeforeUnmount, onMounted, type Ref } from 'vue'
 
 const REVEAL_SELECTOR = '[data-reveal]'
+const STAGGER_MS = 110
+const MAX_STAGGER_STEPS = 5
+
+function reveal(element: HTMLElement, order: number): void {
+  element.style.setProperty('--reveal-delay', `${Math.min(order, MAX_STAGGER_STEPS) * STAGGER_MS}ms`)
+  element.classList.add('is-revealed')
+}
 
 export function useRevealOnScroll(root: Readonly<Ref<HTMLElement | null>>): void {
   let observer: IntersectionObserver | undefined
@@ -19,30 +26,33 @@ export function useRevealOnScroll(root: Readonly<Ref<HTMLElement | null>>): void
 
     observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return
+        // Elements entering together are staggered from top to bottom.
+        const entering = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
 
-          entry.target.classList.remove('is-reveal-pending')
-          entry.target.classList.add('is-revealed')
+        entering.forEach((entry, order) => {
+          reveal(entry.target as HTMLElement, order)
           observer?.unobserve(entry.target)
         })
       },
       {
-        rootMargin: '0px 0px -10% 0px',
-        threshold: 0.08,
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.12,
       },
     )
+
+    let initialOrder = 0
 
     elements.forEach((element) => {
       const { top, bottom } = element.getBoundingClientRect()
       const isInitiallyVisible = top < window.innerHeight && bottom > 0
 
       if (isInitiallyVisible) {
-        element.classList.add('is-revealed')
+        reveal(element, initialOrder++)
         return
       }
 
-      element.classList.add('is-reveal-pending')
       observer?.observe(element)
     })
   })

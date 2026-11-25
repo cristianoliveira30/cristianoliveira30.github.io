@@ -20,7 +20,7 @@ withDefaults(
       'button-base',
       variant === 'primary' ? 'button-primary' : 'button-secondary',
     ]"
-    :download="download || undefined"
+    :download="download ? '' : undefined"
     :href="href"
   >
     <slot />

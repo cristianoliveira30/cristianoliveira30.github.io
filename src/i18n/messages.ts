@@ -111,8 +111,11 @@ const pt = {
   'contact.label': 'Contato',
   'contact.title': 'Conheça meu trabalho e entre em contato pelos canais profissionais.',
   'contact.email': 'E-mail',
-  'contact.cvEn': 'Currículo (EN)',
-  'contact.cvPt': 'Currículo (PT-BR)',
+  'contact.cv': 'Baixar currículo',
+  'cv.dialog.title': 'Baixar currículo',
+  'cv.dialog.description': 'Escolha o idioma do PDF.',
+  'cv.dialog.close': 'Fechar',
+  'cv.option.suggested': 'Sugerido para você',
   'footer.text': '© 2026 Cristian Oliveira. Desenvolvido com Vue 3, TypeScript e Tailwind CSS.',
 } as const
 
@@ -233,8 +236,11 @@ const en: Dictionary = {
   'contact.label': 'Contact',
   'contact.title': 'Explore my work and get in touch through my professional channels.',
   'contact.email': 'Email',
-  'contact.cvEn': 'CV (EN)',
-  'contact.cvPt': 'CV (PT-BR)',
+  'contact.cv': 'Download CV',
+  'cv.dialog.title': 'Download my CV',
+  'cv.dialog.description': 'Choose the language of the PDF.',
+  'cv.dialog.close': 'Close',
+  'cv.option.suggested': 'Suggested for you',
   'footer.text': '© 2026 Cristian Oliveira. Built with Vue 3, TypeScript and Tailwind CSS.',
 }
 
@@ -351,8 +357,11 @@ const de: Dictionary = {
   'contact.label': 'Kontakt',
   'contact.title': 'Entdecken Sie meine Arbeit und kontaktieren Sie mich über meine beruflichen Kanäle.',
   'contact.email': 'E-Mail',
-  'contact.cvEn': 'Lebenslauf (EN)',
-  'contact.cvPt': 'Lebenslauf (PT-BR)',
+  'contact.cv': 'Lebenslauf herunterladen',
+  'cv.dialog.title': 'Lebenslauf herunterladen',
+  'cv.dialog.description': 'Wählen Sie die Sprache des PDFs.',
+  'cv.dialog.close': 'Schließen',
+  'cv.option.suggested': 'Für Sie empfohlen',
   'footer.text': '© 2026 Cristian Oliveira. Entwickelt mit Vue 3, TypeScript und Tailwind CSS.',
 }
 
